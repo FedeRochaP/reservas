@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ReservaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,4 +26,6 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('/reserva/{id}/{message?}', [ReservaController::class, 'index'] )->name('reserva');
+    Route::post('/reserva', [ReservaController::class, 'store'] )->name('guardarReserva');
 });
